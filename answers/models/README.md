@@ -13,4 +13,3 @@ Intermediate:
 
 Marts:
 - The "data warehouse"
-
