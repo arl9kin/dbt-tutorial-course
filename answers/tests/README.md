@@ -8,5 +8,3 @@ There are 2 types of test you can create:
 	- These don't need any {% test %} tags, they just need to use ref('') to point at the model(s) to test
 
 Note that in dbt_project.yml you can specify other paths for your tests under "test-paths"
-
-
