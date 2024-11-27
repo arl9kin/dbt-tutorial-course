@@ -8,7 +8,8 @@ models:
         tests:
           # Generic test that we define in tests/generic/test_primary_key.sql
           # Takes arguments for model & column_name, both of which are automatically passed to it
-          - unique
+          - unique:
+              severity: error
           - relationships:
               to: ref('stg_ecommerce__orders')
               field: order_id

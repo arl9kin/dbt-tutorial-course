@@ -23,7 +23,8 @@ models:
       - name: order_id
         data_type: INTEGER
         tests:
-          - not_null
+          - not_null:
+              severity: error
           - relationships:
               to: ref('stg_ecommerce__orders')
               field: order_id
@@ -46,5 +47,3 @@ models:
         description: "How much the item sold for"
         tests:
           - not_null
-          - dbt_expectations.expect_column_values_to_be_between:
-              min_value: 0

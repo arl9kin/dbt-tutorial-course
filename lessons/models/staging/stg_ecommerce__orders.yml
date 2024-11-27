@@ -8,8 +8,10 @@ models:
       - name: order_id
         description: ""
         tests:
-          - not_null
-          - unique
+          - not_null:
+              severity: error
+          - unique:
+              severity: error
 
       - name: user_id
         description: ""

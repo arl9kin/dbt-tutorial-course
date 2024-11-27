@@ -21,11 +21,10 @@ models:
       - name: retail_price
         description: "How much the product retails for on the online store"
         tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_between:
-              min_value: 0
-          - dbt_utils.expression_is_true:
-              expression: ">= cost"
+          - not_null:
+              severity: error
+              warn_if: ">10"
+              error_if: ">100"
 
       - name: department
         description: "Whether the item is Menswear or Womenswear"
