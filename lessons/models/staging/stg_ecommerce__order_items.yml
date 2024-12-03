@@ -10,9 +10,7 @@ models:
       - name: order_item_id
         # Model tests (run AFTER model is built)
         tests:
-          - not_null:
-              severity: error
-          - unique:
+          - primary_key:
               severity: error
         # Model contract (run BEFORE model is built)
         data_type: INTEGER
