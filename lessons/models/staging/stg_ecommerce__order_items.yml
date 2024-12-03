@@ -3,9 +3,6 @@ version: 2
 models:
   - name: stg_ecommerce__order_items
     description: "Line items from orders"
-    config:
-      contract:
-        enforced: true
     columns:
       - name: order_item_id
         # Model tests (run AFTER model is built)
@@ -45,3 +42,5 @@ models:
         description: "How much the item sold for"
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
