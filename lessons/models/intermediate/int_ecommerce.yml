@@ -14,7 +14,7 @@ models:
           - not_null
 
       # The "&" is a YML anchor which you can reference later in the file
-      - &user_id
+      - &user_id_definition
         name: user_id
         description: "Unique identifier for a user"
         tests:
@@ -57,3 +57,7 @@ models:
           - not_null
           - dbt_utils.expression_is_true:
               expression: "= (product_retail_price - item_sale_price)"
+
+  - name: int_ecommerce__first_order_created
+    columns:
+      - *user_id_definition
