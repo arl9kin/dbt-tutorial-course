@@ -36,6 +36,12 @@ models:
       retention: true
       columns: true
     +hours_to_expiration: 168
+    staging:
+      +tags: ['bronze']
+    intermediate:
+      +tags: ['silver']
+    marts:
+      +tags: ['gold']
 
 tests:
   lessons:
