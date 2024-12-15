@@ -3,11 +3,18 @@ version: 2
 models:
   - name: stg_ecommerce__products
     description: "Table of products on the online store"
+    config:
+      contract:
+        enforced: true
+
     columns:
       - name: product_id
         tests:
           - primary_key:
               severity: error
+        data_type: INTEGER
+        constraints:
+          - type: not_null
 
       - name: cost
         description: "How much the product cost the business to purchase"
@@ -15,6 +22,10 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
+        data_type: FLOAT64
+        constraints:
+          - type: not_null
+
 
       - name: retail_price
         description: "How much the product retails for on the online store"
@@ -26,6 +37,9 @@ models:
               name: retail_price_greater_than_cost
               expression: ">= cost"
               where: "retail_price is not null"
+        data_type: FLOAT64
+        constraints:
+          - type: not_null
 
       - name: department
         description: "Whether the item is Menswear or Womenswear"
@@ -38,9 +52,14 @@ models:
               # quote defaults to true, but this just shows how you could set it to
               # false if you wanted to have non-string values (e.g. numbers or a TRUE/FALSE column)
               quote: true
+        data_type: STRING
+        constraints:
+          - type: not_null
+
 
       - name: brand
         description: "Brand of the product"
+        data_type: STRING
 
     # If you don't specify the latest, version, dbt will either look
     # for the unversioned file name (e.g. stg_ecommerce__products.sql), or reference the
