@@ -1,3 +1,16 @@
+{{
+	config(
+		materialized='incremental',
+		unique_key='order_id',
+		on_schema_change='sync_all_columns',
+		partition_by={
+			"field": "order_created_at",
+			"data_type": "timestamp",
+			"granularity": "day"
+		}
+	)
+}}
+
 WITH
 
 -- Aggregate measures
@@ -33,3 +46,9 @@ LEFT JOIN order_item_measures AS om
 	USING (order_id)
 LEFT JOIN {{ ref('int_ecommerce__first_order_created') }} as user_data
 	USING (user_id)
+
+{% if is_incremental() %}
+
+WHERE od.created_at > (SELECT MAX(od.created_at) FROM {{ this }})
+
+{% endif %}
