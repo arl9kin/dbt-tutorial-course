@@ -22,6 +22,8 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+on-run-start:
+  - "{{ get_brand_name() }}"
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -35,7 +37,17 @@ models:
     +persist_docs:
       retention: true
       columns: true
-    +hours_to_expiration: 168
+    #set retention 168 hours, but for test env only 1
+    +hours_to_expiration: |
+      {% if target.name == 'test' %}1
+      {% else %}168
+      {% endif %}
+    staging:
+      +tags: ['bronze']
+    intermediate:
+      +tags: ['silver']
+    marts:
+      +tags: ['gold']
 
 tests:
   lessons:
