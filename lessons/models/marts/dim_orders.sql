@@ -3,6 +3,7 @@
 		materialized='incremental',
 		unique_key='order_id',
 		on_schema_change='sync_all_columns',
+        clustered_by='order_created_at',
 		partition_by={
 			"field": "order_created_at",
 			"data_type": "timestamp",
