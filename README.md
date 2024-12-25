@@ -1,36 +1,29 @@
-# dbt-tutorial-course
+# Data Insights Project: Advanced dbt Modeling in BigQuery with Looker Studio Visualization
+This repository (repo) is build on top of the project within the scope of ([link here](https://www.udemy.com/course/mastering-dbt-data-build-tool-bootcamp/?referralCode=FFF494163B7B9E5E846F)). But I decided to enhance it to full pet-project.
 
-Welcome to my course!
+## Project Description
 
-This repository (repo) contains the structure you'll need to get started on the dbt course ([link here](https://www.udemy.com/course/mastering-dbt-data-build-tool-bootcamp/?referralCode=FFF494163B7B9E5E846F)).
+This project is my first dbt project, which emphasizes data modeling using dbt in Google BigQuery, aiming to manage and analyze ([theLook eCommerce](https://console.cloud.google.com/bigquery(cameo:product/bigquery-public-data/thelook-ecommerce)?hl=ru&inv=1&invt=AblDyA&project=winged-precept-406816)) data effectively. The Looker Studio dashboard enhances the model's practicality by providing visual interpretations of the data insights.
 
----
+## Key Features
+- **dbt Modeling**: Centerpiece of the project focusing on transforming raw data into analytics-ready structures as well as applying testing, macros and documentation.
+- **Visual Analytics**: Secondary yet insightful, the Looker Studio dashboard offers a graphical representation of the processed data.
 
-## The structure
-This repo has 2 main areas:
-1. **The top level** - everything you can see without clicking into a folder. This contains things that are used both in the model answers and in your lessons - such as the python packages you'll need and VSCode configuration.
+## Architecture Overview
+Here's how the project flows:
+- **Data Source:** theLook eCommerce public data stored in Google BigQuery. More details: ([source definition](https://github.com/arl9kin/dbt-tutorial-course/blob/main/lessons/models/staging/scr_ecommerce.yml))
+- **Primary Focus - dbt Modeling:** Transformational dbt models that cleanse, organize, and enrich raw data making it ready for deep analytics.
+- **Supporting Component - Visualization:** A comprehensive ([Looker Studio Dashboard](https://lookerstudio.google.com/s/hpIVwJ3ljsU)) that leverages the dbt models to display key metrics.
+![High Level Architecture](https://github.com/arl9kin/dbt-tutorial-course/blob/main/files/arhitecture.drawio.png?raw=true)
 
-2. **The answers folder**. This is how your project should look like at the end of the course. Feel free to use this for reference throughout the lessons if you're stuck, but remember - this will contain the final versions of everything so it may be several lessons ahead!
+## dbt Data Modeling
+- Leveraging a Medallion-like architecture, this project implements dbt to sequentially transform data through three layers—Bronze for initial cleaning, Silver for detailed business logic application, and Gold for final refinements with rigorous testing—to ensure the highest data quality for reporting in Looker Studio.
+- Powerfull dbt's features like tests, ([documentation](https://ih107.us1.dbt.com/accounts/70471823409407/jobs/70471823411326/docs/#!/overview)) (avaliable after sign in to DBT account) are also a part of the project.
 
-In the course, you'll be creating a 3rd area - `/lessons` - that will, by the end of the course, be (nearly) identical to the answers folder
+![Data Model](https://github.com/arl9kin/dbt-tutorial-course/blob/main/files/dbt-dag.png?raw=true)
 
----
-## A note on forking vs. cloning
-> **Don't clone this repo, fork it!**
-
-Cloning the repo means that if you want to save your changes locally and push them remotely (to GitHub), it will attempt to overwrite the repo itself (the master branch) - or, you'll have to create your own version of code (a developer branch).
-
-Both of these would clutter up this repo, instead - you should [fork the repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
-
-Forking the repo means that you get your own copy of this repository, can makes changes locally, and push them to your own master branch.
-
-Your (forked) repo should have an untouched `/answers` folder, and use the `/lessons` folder for all of your work when following along with the course.
-
-### What if the repository gets updated after I've forked it?
-
-If I update this repository, and you want to update your forked repository with my changes, then you'll want to [follow these steps to sync my changes to your repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork).
-
-3 things that are really important here:
-1. Do all of your work in a separate `/lessons` folder. If you make all of your changes in a brand new folder that isn't in this repository, then when you sync my changes to your forked repository it won't have any conflicts!
-2. Linked the above, don't make changes to the `/answers` folder - or if you do, make sure you delete them afterwards. If I update the repository it's very likely I'll be updating this folder and it'll make things a lot harder for you!
-3. **If you've made changes, and you sync your fork with my changes, don't discard your commits!** This will get rid of all of your progress. I'd advise creating a new branch before syncing in case this happens
+## Dashboard Overview
+While secondary, the dashboard in Looker Studio adds value by:
+- Graphically displaying outcomes from dbt models.
+- Enabling interactive exploration of data trends over time.
+- Highlighting areas of interest like order fulfillment efficiency and customer engagement metrics.
