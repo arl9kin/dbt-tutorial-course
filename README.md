@@ -3,11 +3,7 @@ This repository (repo) is build on top of the project within the scope of ([link
 
 ## Project Description
 
-This project is my first dbt project, which emphasizes data modeling using dbt in Google BigQuery, aiming to manage and analyze ([theLook eCommerce](https://console.cloud.google.com/bigquery(cameo:product/bigquery-public-data/thelook-ecommerce)?hl=ru&inv=1&invt=AblDyA&project=winged-precept-406816)) data effectively. The Looker Studio dashboard enhances the model's practicality by providing visual interpretations of the data insights.
-
-## Key Features
-- **dbt Modeling**: Centerpiece of the project focusing on transforming raw data into analytics-ready structures as well as applying testing, macros and documentation.
-- **Visual Analytics**: Secondary yet insightful, the Looker Studio dashboard offers a graphical representation of the processed data.
+This project is my first dbt project, which emphasizes data modeling using dbt in Google BigQuery, aiming to manage and analyze ([theLook eCommerce](https://console.cloud.google.com/bigquery(cameo:product/bigquery-public-data/thelook-ecommerce)?hl=ru&inv=1&invt=AblDyA&project=winged-precept-406816)) data effectively. The ([Looker Studio Dashboard](https://lookerstudio.google.com/s/hpIVwJ3ljsU)) enhances the model's practicality by providing visual interpretations of the data insights.
 
 ## Architecture Overview
 Here's how the project flows:
