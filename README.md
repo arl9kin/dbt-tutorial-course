@@ -1,4 +1,4 @@
-# Data Insights Project: Advanced dbt Modeling in BigQuery with Looker Studio Visualization
+# Data Insights Project: dbt Modeling in BigQuery with Looker Studio Visualization
 This repository (repo) is build on top of the project within the scope of ([link here](https://www.udemy.com/course/mastering-dbt-data-build-tool-bootcamp/?referralCode=FFF494163B7B9E5E846F)). But I decided to enhance it to full pet-project.
 
 ## Project Description
